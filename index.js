@@ -16,9 +16,9 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 // Manejo de errores
 const errorHandler = (error, request, response, next) => {
   if (error.name === 'CastError') {
-    return response.status(400).send({ error: 'malformatted id' })
+    return response.status(400).json({ error: 'Malformatted id' })
   } else if (error.name === 'ValidationError') {
-    console.log("Error:", error)
+    console.log("Error message:", error)
     return response.status(400).json({ error: error.message })
   }
   next(error)
