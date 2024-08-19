@@ -37,7 +37,7 @@ if (process.argv.length == 3) {
   const number = process.argv[4]
   const nuevaPersona = new Persona({ name, number })
   nuevaPersona.save()
-    .then(result => {
+    .then( () => {
       console.log(`Added ${name} number ${number} to phonebook`)
       mongoose.connection.close()
       process.exit(0)
